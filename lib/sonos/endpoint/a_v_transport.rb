@@ -168,7 +168,7 @@ module Sonos::Endpoint::AVTransport
     when /starred/
       uri = "x-rincon-cpcontainer:#{r_id}starred"
     when /track/
-      uri = "x-sonos-spotify:spotify%3a#{opts[:type]}%3a#{opts[:id]}"
+      uri = "x-sonos-spotify:spotify%3a#{opts[:type]}%3a#{opts[:id]}?sid=9&amp;flags=8224&amp;sn=1"
     else
       return nil
     end
