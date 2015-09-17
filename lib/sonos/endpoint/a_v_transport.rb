@@ -144,7 +144,13 @@ module Sonos::Endpoint::AVTransport
 
     # In order for the player to retrieve track duration, artist, album etc
     # we need to pass it some metadata ourselves.
-    didl_metadata = "&lt;DIDL-Lite xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:upnp=&quot;urn:schemas-upnp-org:metadata-1-0/upnp/&quot; xmlns:r=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot; xmlns=&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&quot;&gt;&lt;item id=&quot;#{rand(10000000..99999999)}spotify%3a#{opts[:type]}%3a#{opts[:id]}&quot; restricted=&quot;true&quot;&gt;&lt;dc:title&gt;&lt;/dc:title&gt;&lt;upnp:class&gt;object.item.audioItem.musicTrack&lt;/upnp:class&gt;&lt;desc id=&quot;cdudn&quot; nameSpace=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot;&gt;SA_RINCON2311_X_#Svc2311-0-Token&lt;/desc&gt;&lt;/item&gt;&lt;/DIDL-Lite&gt;"
+    didl_metadata = "&lt;DIDL-Lite xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot; xmlns:upnp=&quot;urn:schemas-upnp-org:metadata-1-0/upnp/&quot; xmlns:r=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot; xmlns=&quot;urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/&quot;&gt;" \
+      "&lt;item id=&quot;#{rand(10000000..99999999)}spotify%3a#{opts[:type]}%3a#{opts[:id]}&quot; restricted=&quot;true&quot;&gt;" \
+      "&lt;dc:title&gt;&lt;/dc:title&gt;" \
+      "&lt;upnp:class&gt;object.item.audioItem.musicTrack&lt;/upnp:class&gt;" \
+      "&lt;desc id=&quot;cdudn&quot; nameSpace=&quot;urn:schemas-rinconnetworks-com:metadata-1-0/&quot;&gt;SA_RINCON2311_X_#Svc2311-0-Token&lt;/desc&gt;" \
+      "&lt;/item&gt;" \
+      "&lt;/DIDL-Lite&gt;"
 
     r_id = rand(10000000..99999999)
 
