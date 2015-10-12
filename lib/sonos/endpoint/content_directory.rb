@@ -25,16 +25,6 @@ module Sonos::Endpoint::ContentDirectory
       items: parse_items(body[:result])
     }
 
-    # Paginate
-    # TODO: This is ugly and inflexible
-    if starting_index == 0
-      start = starting_index
-      while hash[:items].count < hash[:total]
-        start += requested_count
-        hash[:items] += browse(start, requested_count)[:items]
-      end
-    end
-
     hash
   end
 
