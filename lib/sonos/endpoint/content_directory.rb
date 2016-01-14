@@ -25,6 +25,12 @@ module Sonos::Endpoint::ContentDirectory
       items: parse_items(body[:result])
     }
 
+    # Paginate
+    count = hash[:items].count
+    if count < hash[:total] - starting_index
+      hash[:items] += container_contents(container, count, hash[:total] - count)[:items]
+    end
+
     hash
   end
 
